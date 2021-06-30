@@ -30,20 +30,39 @@
         </section>
         <section>
           <p>How to get started?</p>
-          <p class="fragment">Node js</p>
-          <p class="fragment">Vue CLI</p>
+          <div class="fragment">
+            <a href="" target="_blank">Node js</a>
+          </div>
+          <div class="fragment">
+            <a href="" target="_blank">Vue CLI</a>
+          </div>
+          <div class="fragment">
+            <pre data-id="code"><code data-line-numbers class="bash" data-trim>
+              npm i -g @vue/cli
+            </code></pre>
+          </div>
+          <div class="fragment">
+            <pre data-id="code"><code data-line-numbers class="bash" data-trim>
+              vue create pig-and-flies
+            </code></pre>
+          </div>
         </section>
         <section>
           <p>
             Project is built around
             <a href="https://webpack.js.org/" target="_blank"
               ><img
-                style="width: 75px; margin: auto"
+                style="width: 125px; margin: auto"
                 src="img/webpack.svg"
                 alt="webpack logo"
             /></a>
           </p>
-          <p>vue.config.js</p>
+          <ul class="fragment">
+            <li>vue.config.js</li>
+            <li>Extend and overwrite webpack config</li>
+            <li>Setup Proxy server for development</li>
+            <li>baseUrl</li>
+          </ul>
         </section>
         <section>
           <h2>VS Code Extensions</h2>
@@ -226,14 +245,10 @@
                 v-bind:title="doc.title"
                 v-on:update:title="doc.title = $event"
               ></text-document>
-            </code></pre>
-            </div>
-          </section>
-          <section>
-            <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
-              <!-- App.vue -->
+              <!-- Sync -->
               <text-document v-bind:title.sync="doc.title"></text-document>
             </code></pre>
+            </div>
           </section>
         </section>
         <section>
@@ -327,6 +342,13 @@
         <section>
           Life Cycle Hooks
           <div>
+            <a
+            href="https://www.digitalocean.com/community/tutorials/vuejs-component-lifecycle"
+            target="_blank"
+            >Digital Ocean Article</a
+          >
+          </div>
+          <div>
             <ul>
               <li>beforeCreate / created</li>
               <li>beforeMount / mounted</li>
@@ -334,20 +356,14 @@
               <li>beforeDestroy / destroyed</li>
             </ul>
           </div>
-          <a
-            href="https://www.digitalocean.com/community/tutorials/vuejs-component-lifecycle"
-            target="_blank"
-            >Digital Ocean Article</a
-          >
         </section>
         <section>
-          beforeCreate / Created beforeCreate - data is not reactive and events
-          have not been setup. created - data is reactive and events have been
-          setup. Don't have access to Templates or Virtual DOM
-        </section>
-        <section>
-          beforeMount / Mounted beforeMount - $el has not been created yet.
-          mounted - $el has been created and replaced with actual el
+          Note about Mounted.
+          <p>
+            Mounted is for that component not the whole DOM. That means child
+            components will not be rendered at this time. If you need to have
+            the child element rendered before setting a prop; use this.$next()
+          </p>
         </section>
         <section>
           <h3>References</h3>
@@ -359,6 +375,12 @@
             </li>
             <li><a href="https://nuxtjs.org/">Nuxt</a></li>
           </ul>
+        </section>
+        <section>
+          DEMO
+          <div>
+            <a href="https://github.com/nick-gernert/pigs-and-flies-shop" target="_blank">Pigs and Flies</a>
+          </div>
         </section>
         <section>Q & A</section>
       </div>
