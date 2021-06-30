@@ -20,42 +20,347 @@
     <div class="reveal">
       <div class="slides">
         <section>
-          <h2>Intro to Vue.js and Web Dev</h2>
-          <h4>Nick Gernert</h4>
-          <p>Software Engineer 3</p>
-          <p>nicholas.gernert@altamiracorp.com</p>
+          <img src="img/logo.png" alt="Vue Logo" />
+          <h2>Intro to Vue.js</h2>
+          <div>Nick Gernert</div>
+          <div>Software Engineer</div>
+          <a href="mailto:nicholas.gernert@altamiracorp.com"
+            >nicholas.gernert@altamiracorp.com</a
+          >
         </section>
         <section>
           <p>How to get started?</p>
-          <p>Node js</p>
-          <p>Vue CLI</p>
+          <p class="fragment">Node js</p>
+          <p class="fragment">Vue CLI</p>
         </section>
         <section>
-          <p>Generate Project with the CLI</p>
-          <p>Use Presets</p>
-          <p>Interactive</p>
+          <p>
+            Project is built around
+            <a href="https://webpack.js.org/" target="_blank"
+              ><img
+                style="width: 75px; margin: auto"
+                src="img/webpack.svg"
+                alt="webpack logo"
+            /></a>
+          </p>
+          <p>vue.config.js</p>
         </section>
         <section>
-          <p>Project has the following:</p>
+          <h2>VS Code Extensions</h2>
+          <h4>
+            <a
+              href="https://marketplace.visualstudio.com/items?itemName=octref.vetur"
+              >Vetur</a
+            >
+            /
+            <a
+              href="https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets"
+              >VSCode Vue snippets</a
+            >
+          </h4>
           <ul>
-            <li>Webpack</li>
-            <li>browserslistrc</li>
-            <li>editorconfig</li>
-            <li>eslint</li>
-            <li>babel</li>
+            <li>syntax highlighting</li>
+            <li>linting / error checking</li>
+            <li>formatting</li>
+            <li>autocompletion</li>
+            <li>hover info</li>
+            <li>snippets</li>
+            <li>emmet</li>
           </ul>
         </section>
-		<section>
-			Project Structure
-		</section>
-		<section>Vue Component Structure</section>
-		<section>Vue Components Best Practices</section>
-		<section>Life Cycle Hooks</section>
-		<section>
-			v-for :key
-		</section>
-		<section>Inputs / Outputs</section>
-		<section>Q & A</section>
+        <section>
+          Vue dev tools for Chrome
+          <div>
+            <a
+              href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en"
+              ><img src="img/chrome.png" alt="Chrome logo" style="width: 70px"
+            /></a>
+            <a
+              href="https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/"
+              ><img
+                src="img/firefox.png"
+                alt="firefox logo"
+                style="width: 70px"
+            /></a>
+          </div>
+          <img src="img/vue-dev-tools.png" alt="dev tools in action" />
+        </section>
+        <section>
+          <section>
+            <h4>Project Structure</h4>
+            <div style="display: flex; justify-content: space-between">
+              <img
+                style="height: 400px"
+                src="img/initial-structure.png"
+                alt="initial project structure"
+              />
+              <img
+                style="height: 400px"
+                src="img/project-structure.png"
+                alt="Project structure"
+              />
+            </div>
+          </section>
+        </section>
+        <section>
+          Vue uses a virtual DOM for checking updates.
+          <!-- TODO: Finish notes for this-->
+          <a
+            href="https://blog.logrocket.com/how-the-virtual-dom-works-in-vue-js/"
+            target="_blank"
+            >resource</a
+          >
+        </section>
+        <section>
+          Vue Component Structure
+          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            <template lang="jade">
+              <!-- Html goes here. only one parent element for v2.* -->
+            </template>
+            <script lang="ts">
+              // Js goes here. Code behind for the view.
+            </script>
+            <style lang="scss" scoped>
+              /* Scoped css / scss goes here. */
+            </style>
+          </code></pre>
+        </section>
+        <section>
+          Vue Components Best Practices
+          <ul>
+            <li>Multi word names</li>
+            <li>
+              If not using typescript; data property must be a function that
+              returns an object
+            </li>
+            <li>Styles should be scoped to component</li>
+            <li>
+              One component per file if using single file components (.vue)
+            </li>
+            <li>
+              In single file components; use self closing tags for components
+              that don't need slot content
+            </li>
+          </ul>
+        </section>
+        <section>
+          Component Communication
+          <p>pass data to a child component</p>
+          <div class="fragment">
+            <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            <!-- App.vue -->
+            <product-list product-title="The Title"></product-list>
+            <product-list v-bind:items="products"></product-list>
+            <product-list :items="products"></product-list>
+          </code></pre>
+          </div>
+        </section>
+        <section>
+          Receive data from parent component
+          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            <!-- ProductList.vue -->
+            <template>
+              <product-item :item="items[0]"></product-item>
+            </template>
+
+            <script>
+            import ProductItem from '@/components/ProductItem.vue';
+
+            export default {
+              // rest of component
+              components: {
+                ProductItem,
+              },
+              props: ['items'],
+              // normally only one props section but 
+              // Vue will handle either a map or an array
+              props: {
+                items: Array,
+                required: true,
+              },
+            }
+          </script>
+          </code></pre>
+        </section>
+        <section>
+          Child to parent communication
+          <p>Events must match what is emitted, unlike components and props</p>
+          <div class="fragment">
+            <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            <!-- App.vue -->
+            <template>
+              <product-list v-on:addTodo="handleAddProduct(product)"></product-list>
+              <product-list @addTodo="handleAddProduct(product)"></product-list>
+              <button @click="handleAddProduct({})">Add Empty Product</button>
+            </template>
+            <script>
+              export default {
+                // ... other parts of component
+                methods: {
+                  handleAddProduct(product) {
+                    this.products.push(product);
+                  }
+                }
+              }
+            </script>
+          </code></pre>
+          </div>
+        </section>
+        <section>
+          <section>
+            Sync modifier
+            <div class="fragment">
+              <pre
+                data-id="code"
+              ><code data-line-numbers class="hljs" data-trim>
+              <!-- App.vue -->
+              this.$emit('update:title', newTitle)
+            </code></pre>
+            </div>
+            <div class="fragment">
+              <pre
+                data-id="code"
+              ><code data-line-numbers class="hljs" data-trim>
+              <!-- App.vue -->
+              <text-document
+                v-bind:title="doc.title"
+                v-on:update:title="doc.title = $event"
+              ></text-document>
+            </code></pre>
+            </div>
+          </section>
+          <section>
+            <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+              <!-- App.vue -->
+              <text-document v-bind:title.sync="doc.title"></text-document>
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          2 way data binding with v-model
+          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            <!-- App.vue -->
+            <label for="user-name">User Name</label>
+            <input type="text" id="user-name" v-model="userName" />
+          </code></pre>
+        </section>
+        <section>
+          Structural Directives
+          <div class="fragment">
+            <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            <!-- App.vue -->
+            <div v-if="isValid">
+              Success!
+            </div>
+            <div v-else>
+              Please correct the errors.
+            </div>
+          </code></pre>
+          </div>
+          <div class="fragment">
+            <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            <!-- App.vue -->
+            <ul>
+              <li
+                v-for="product in products"
+                :key="product.id"
+              >
+                {{ product.title }}
+              </li>
+            </ul>
+          </code></pre>
+          </div>
+        </section>
+        <section>
+          Slots
+          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            <!-- App.vue -->
+            <navigation-link url="/profile">
+              Your Profile
+            </navigation-link>
+          </code></pre>
+          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            <!-- NavigationLink.vue-->
+            <a
+              v-bind:href="url"
+              class="nav-link"
+            >
+              <slot></slot>
+            </a>
+          </code></pre>
+        </section>
+        <section>
+          Named Slots
+          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            <!-- BaseLayout.vue -->
+            <div class="container">
+              <header>
+                <slot name="header"></slot>
+              </header>
+              <main>
+                <slot></slot>
+              </main>
+              <footer>
+                <slot name="footer"></slot>
+              </footer>
+            </div>
+          </code></pre>
+        </section>
+        <section>
+          Named Slot continued
+          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            <!-- App.vue -->
+            <base-layout>
+              <template v-slot:header>
+                <h1>Here might be a page title</h1>
+              </template>
+            
+              <p>A paragraph for the main content.</p>
+              <p>And another one.</p>
+            
+              <template #footer>
+                <p>Here's some contact info</p>
+              </template>
+            </base-layout>
+          </code></pre>
+        </section>
+        <section>
+          Life Cycle Hooks
+          <div>
+            <ul>
+              <li>beforeCreate / created</li>
+              <li>beforeMount / mounted</li>
+              <li>beforeUpdate / updated</li>
+              <li>beforeDestroy / destroyed</li>
+            </ul>
+          </div>
+          <a
+            href="https://www.digitalocean.com/community/tutorials/vuejs-component-lifecycle"
+            target="_blank"
+            >Digital Ocean Article</a
+          >
+        </section>
+        <section>
+          beforeCreate / Created beforeCreate - data is not reactive and events
+          have not been setup. created - data is reactive and events have been
+          setup. Don't have access to Templates or Virtual DOM
+        </section>
+        <section>
+          beforeMount / Mounted beforeMount - $el has not been created yet.
+          mounted - $el has been created and replaced with actual el
+        </section>
+        <section>
+          <h3>References</h3>
+          <ul>
+            <li><a href="https://vuejs.org">Vue js</a></li>
+            <li><a href="https://cli.vuejs.org/guide/">Vue CLI</a></li>
+            <li>
+              <a href="https://vuejs.org/v2/style-guide/">Vue Style Guide</a>
+            </li>
+            <li><a href="https://nuxtjs.org/">Nuxt</a></li>
+          </ul>
+        </section>
+        <section>Q & A</section>
       </div>
     </div>
 
