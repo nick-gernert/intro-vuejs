@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <title>reveal.js</title>
+    <title>Intro to Vue.js</title>
 
     <link rel="stylesheet" href="dist/reset.css" />
     <link rel="stylesheet" href="dist/reveal.css" />
@@ -22,19 +22,74 @@
         <section>
           <img src="img/logo.png" alt="Vue Logo" />
           <h2>Intro to Vue.js</h2>
-          <div>Nick Gernert</div>
-          <div>Software Engineer</div>
+          <p>Nick Gernert</p>
+          <p>Software Engineer</p>
           <a href="mailto:nicholas.gernert@altamiracorp.com"
             >nicholas.gernert@altamiracorp.com</a
           >
         </section>
         <section>
+          <h3>Agenda</h3>
+          <ul>
+            <li><a href="#/getting-started">Getting Started</a></li>
+            <li><a href="#/project-structure">Project Structure</a></li>
+            <li><a href="#/vue-components">Vue Components</a></li>
+            <li>
+              <a href="#/component-communication">Component Communication</a>
+            </li>
+            <li><a href="#/structural-directives">Structural Directives</a></li>
+            <li><a href="#/filters">Filters</a></li>
+            <li><a href="#/slots">Slots</a></li>
+            <li><a href="#/lifecycle-hooks">Lifecycle hooks</a></li>
+            <li><a href="#/plugins">Plugins</a></li>
+            <li><a href="#/testing">Testing</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Pigs and Flies Shop</h3>
+          <div>
+            <img style="height: 400px" src="img/pigs-and-flies-shop.png" alt />
+          </div>
+          <div style="display: flex">
+            <a
+              href="https://github.com/nick-gernert/pigs-and-flies-shop"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="margin-left: auto; margin-right: auto"
+            >
+              <img
+                style="width: 60px; margin: 0"
+                src="img/github.svg"
+                alt="github logo"
+              />
+            </a>
+          </div>
+          <div>
+            <a
+              href="https://pigs-and-flies-shop-f4phd.ondigitalocean.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Live</a
+            >
+          </div>
+        </section>
+        <section id="getting-started">
           <p>How to get started?</p>
           <div class="fragment">
-            <a href="" target="_blank">Node js</a>
+            <a
+              href="https://nodejs.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Node js</a
+            >
           </div>
           <div class="fragment">
-            <a href="" target="_blank">Vue CLI</a>
+            <a
+              href="https://cli.vuejs.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Vue CLI</a
+            >
           </div>
           <div class="fragment">
             <pre data-id="code"><code data-line-numbers class="bash" data-trim>
@@ -49,8 +104,11 @@
         </section>
         <section>
           <p>
-            Project is built around
-            <a href="https://webpack.js.org/" target="_blank"
+            Vue cli Project is built around
+            <a
+              href="https://webpack.js.org/"
+              target="_blank"
+              rel="noopener noreferrer"
               ><img
                 style="width: 125px; margin: auto"
                 src="img/webpack.svg"
@@ -58,7 +116,14 @@
             /></a>
           </p>
           <ul class="fragment">
-            <li>vue.config.js</li>
+            <li>
+              <a
+                href="https://cli.vuejs.org/config/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >vue.config.js</a
+              >
+            </li>
             <li>Extend and overwrite webpack config</li>
             <li>Setup Proxy server for development</li>
             <li>baseUrl</li>
@@ -84,11 +149,18 @@
             <li>autocompletion</li>
             <li>hover info</li>
             <li>snippets</li>
-            <li>emmet</li>
+            <li>
+              <a
+                href="https://code.visualstudio.com/docs/editor/emmet"
+                target="_blank"
+                rel="noopener noreferrer"
+                >emmet - quickly structure html</a
+              >
+            </li>
           </ul>
         </section>
         <section>
-          Vue dev tools for Chrome
+          <h3>Vue dev tools for Chrome</h3>
           <div>
             <a
               href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en"
@@ -104,34 +176,30 @@
           </div>
           <img src="img/vue-dev-tools.png" alt="dev tools in action" />
         </section>
-        <section>
-          <section>
-            <h4>Project Structure</h4>
-            <div style="display: flex; justify-content: space-between">
-              <img
-                style="height: 400px"
-                src="img/initial-structure.png"
-                alt="initial project structure"
-              />
-              <img
-                style="height: 400px"
-                src="img/project-structure.png"
-                alt="Project structure"
-              />
-            </div>
-          </section>
+        <section id="project-structure">
+          <h3>
+            <a
+              href="https://vueschool.io/articles/vuejs-tutorials/structuring-vue-components/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Project Structure</a
+            >
+          </h3>
+          <div style="display: flex; justify-content: space-between">
+            <img
+              style="height: 450px; margin-right: 5px; margin-left: 5px"
+              src="img/medium-structure.png"
+              alt="Pigs and Flies"
+            />
+            <img
+              style="height: 450px; margin-right: 5px; margin-left: 5px"
+              src="img/project-structure.png"
+              alt="Project structure"
+            />
+          </div>
         </section>
-        <section>
-          Vue uses a virtual DOM for checking updates.
-          <!-- TODO: Finish notes for this-->
-          <a
-            href="https://blog.logrocket.com/how-the-virtual-dom-works-in-vue-js/"
-            target="_blank"
-            >resource</a
-          >
-        </section>
-        <section>
-          Vue Component Structure
+        <section id="vue-components">
+          <h3>Vue Component Structure</h3>
           <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
             <template lang="jade">
               <!-- Html goes here. only one parent element for v2.* -->
@@ -145,7 +213,36 @@
           </code></pre>
         </section>
         <section>
-          Vue Components Best Practices
+          <h3>Vue js structure</h3>
+          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            export default {
+              name: 'ProductItem',
+              props: ['item'],
+              components: {
+                ShopCard,
+              },
+              data() {
+                return {
+                  display: false,
+                };
+              },
+              methods: {
+                addToCart: function() {} 
+              },
+              computed: {
+                productPrice: function() { return '' }
+              },
+              watch: {
+                item: {
+                  handler: function() {},
+                  deep: true,
+                }
+              }
+            };
+          </code></pre>
+        </section>
+        <section>
+          <h3>Vue Components Best Practices</h3>
           <ul>
             <li>Multi word names</li>
             <li>
@@ -163,62 +260,90 @@
           </ul>
         </section>
         <section>
-          Component Communication
+          <!-- TODO: typescript -->
+          <h3>
+            <a
+              href="https://vuejs.org/v2/guide/typescript.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Typescript</a
+            >
+          </h3>
+          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            @Component({
+              name: 'ProductItem',
+              components: {
+                ShopCard,
+              }
+            })
+            export default class ProductItem extends Vue {
+              @Prop() item!: ShopProduct;
+
+              display: boolean = false;
+
+              // method
+              addToCart() {}
+              // computed
+              get productPrice() { return ''; }
+
+              @watch('item', { deep: true })
+              itemChanged() {}
+            };
+          </code></pre>
+        </section>
+        <section id="component-communication">
+          <h3>Component Communication</h3>
           <p>pass data to a child component</p>
           <div class="fragment">
             <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
-            <!-- App.vue -->
-            <product-list product-title="The Title"></product-list>
-            <product-list v-bind:items="products"></product-list>
-            <product-list :items="products"></product-list>
+            <!-- Cart.vue -->
+            <cart-item-list cart-title="Your Cart"></cart-item-list>
+            <cart-item-list v-bind:items="cartProducts"></cart-item-list>
+            <cart-item-list :items="cartProducts"></cart-item-list>
           </code></pre>
           </div>
         </section>
         <section>
-          Receive data from parent component
+          <h3>Receive data from parent component</h3>
           <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
-            <!-- ProductList.vue -->
-            <template>
-              <product-item :item="items[0]"></product-item>
-            </template>
+            <!-- CartItemList.vue -->
+            <script lang="ts">
+              import { Component, Vue, Prop } from 'vue-property-decorator';
+              import CartCard from '@/components/ProductItem.vue';
 
-            <script>
-            import ProductItem from '@/components/ProductItem.vue';
-
-            export default {
-              // rest of component
-              components: {
-                ProductItem,
-              },
-              props: ['items'],
-              // normally only one props section but 
-              // Vue will handle either a map or an array
-              props: {
-                items: Array,
-                required: true,
-              },
-            }
-          </script>
+              @Component({
+                name: 'CartItemList',
+                components: {
+                  CartCard,
+                },
+              })
+              export default class CartItemList extends Vue {
+                // rest of component
+                @Prop() items!: CartItem[];
+                // better
+                @Prop({ required: true, type: Array }) 
+                items!: CartItem[];
+              }
+            </script>
           </code></pre>
         </section>
         <section>
-          Child to parent communication
-          <p>Events must match what is emitted, unlike components and props</p>
+          <h3>Child to parent communication</h3>
+          <p>Catching the event</p>
           <div class="fragment">
             <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
-            <!-- App.vue -->
+            <!-- ProductItem.vue -->
             <template>
-              <product-list v-on:addTodo="handleAddProduct(product)"></product-list>
-              <product-list @addTodo="handleAddProduct(product)"></product-list>
-              <button @click="handleAddProduct({})">Add Empty Product</button>
+              <shop-button v-on:click="handleAddToCart"></shop-button>
+              <shop-button @click="handleAddToCart"></shop-button>
             </template>
             <script>
-              export default {
+              export default class ProductItem extends Vue {
                 // ... other parts of component
-                methods: {
-                  handleAddProduct(product) {
-                    this.products.push(product);
-                  }
+                handleAddToCart(e: Event): void {
+                  e.stopPropagation();
+
+                  this.addToCart(this.product);
                 }
               }
             </script>
@@ -226,128 +351,189 @@
           </div>
         </section>
         <section>
-          <section>
-            Sync modifier
-            <div class="fragment">
-              <pre
-                data-id="code"
-              ><code data-line-numbers class="hljs" data-trim>
-              <!-- App.vue -->
-              this.$emit('update:title', newTitle)
-            </code></pre>
-            </div>
-            <div class="fragment">
-              <pre
-                data-id="code"
-              ><code data-line-numbers class="hljs" data-trim>
-              <!-- App.vue -->
-              <text-document
-                v-bind:title="doc.title"
-                v-on:update:title="doc.title = $event"
-              ></text-document>
-              <!-- Sync -->
-              <text-document v-bind:title.sync="doc.title"></text-document>
-            </code></pre>
-            </div>
-          </section>
-        </section>
-        <section>
-          2 way data binding with v-model
+          <p>Emitting the event</p>
+          <p>Events must match what is emitted, unlike components and props</p>
           <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
-            <!-- App.vue -->
-            <label for="user-name">User Name</label>
-            <input type="text" id="user-name" v-model="userName" />
+            <!-- ShopButton.vue -->
+            <template>
+              <button
+                :type="type"
+                @click="handleClick"
+                :class="[colorClass, hoverClass]"
+              >
+                {{ label }}
+              </button>
+            </template>
+            
+            <script lang="ts">
+            import { Component, Vue, Prop } from 'vue-property-decorator';
+            
+            @Component
+            export default class ShopButton extends Vue {
+              // ...rest omitted
+              handleClick(e: Event): void {
+                this.$emit('click', e);
+              }
+            }
+            </script>
           </code></pre>
         </section>
         <section>
-          Structural Directives
+          <h3>Sync modifier</h3>
           <div class="fragment">
             <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
             <!-- App.vue -->
-            <div v-if="isValid">
-              Success!
+            this.$emit('update:title', newTitle)
+          </code></pre>
+          </div>
+          <div class="fragment">
+            <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            <!-- App.vue -->
+            <text-document
+              v-bind:title="doc.title"
+              v-on:update:title="doc.title = $event"
+            ></text-document>
+            <!-- Sync -->
+            <text-document v-bind:title.sync="doc.title"></text-document>
+          </code></pre>
+          </div>
+        </section>
+        <section>
+          <h3>2 way data binding with v-model</h3>
+          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            <!-- ProductList.vue -->
+            <input
+              type="text"
+              placeholder="Search"
+              v-model="searchText" />
+            <input 
+              type="text"
+              placeholder="Search"
+              :value="searchText"
+              @input="searchText = $event.target.value" />
+          </code></pre>
+        </section>
+        <section id="structural-directives">
+          <h3>Structural Directives</h3>
+          <div class="fragment">
+            <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            <!-- ProductList.vue -->
+            <div v-if="displayProducts.length > 0">
+              <product-item v-for="product in displayProducts" :key="product.id" :product="product"></product-item>
             </div>
             <div v-else>
-              Please correct the errors.
+              No products to display.
             </div>
           </code></pre>
           </div>
           <div class="fragment">
             <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
-            <!-- App.vue -->
-            <ul>
-              <li
-                v-for="product in products"
-                :key="product.id"
-              >
-                {{ product.title }}
-              </li>
-            </ul>
+            <!-- ProductList.vue -->
+            <product-item v-for="product in displayProducts" :key="product.id" :product="product"></product-item>
           </code></pre>
           </div>
         </section>
-        <section>
-          Slots
-          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
-            <!-- App.vue -->
-            <navigation-link url="/profile">
-              Your Profile
-            </navigation-link>
-          </code></pre>
-          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
-            <!-- NavigationLink.vue-->
+        <section id="filters">
+          <h3>
             <a
-              v-bind:href="url"
-              class="nav-link"
+              href="https://vuejs.org/v2/guide/filters.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Filters</a
             >
-              <slot></slot>
-            </a>
-          </code></pre>
+          </h3>
+          <div class="fragment">
+            <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+              import { VueConstructor } from 'vue/types/umd.d';
+
+              export default {
+                install(Vue: VueConstructor): void {
+                  Vue.filter('shopCurrency', (value: string) => `$${value}`);
+                },
+              };
+            </code></pre>
+          </div>
+          <div class="fragment">
+            <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+              import filters from './plugins/filters';
+              
+              Vue.use(filters);
+            </code></pre>
+          </div>
+          <div class="fragment">
+            <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+              {{ product.price | shopCurrency }}
+            </code></pre>
+          </div>
+          <div class="fragment">
+            <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+              get productPrice(): string {
+                return `$${this.product.price}`;
+              }
+            </code></pre>
+          </div>
         </section>
-        <section>
-          Named Slots
+        <section id="slots">
+          <h3>
+            <a
+              href="https://vuejs.org/v2/guide/components-slots.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Slots</a
+            >
+          </h3>
           <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
-            <!-- BaseLayout.vue -->
-            <div class="container">
-              <header>
-                <slot name="header"></slot>
-              </header>
-              <main>
-                <slot></slot>
-              </main>
-              <footer>
-                <slot name="footer"></slot>
-              </footer>
+            <!-- ProductItem.vue -->
+            <shop-card>
+              <div>
+                {{ productPrice }}
+              </div>
+              <!-- Rest omitted  -->
+            </shop-card>
+          </code></pre>
+          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            <!-- ShopCard.vue-->
+            <div>
+              <slot></slot>
             </div>
           </code></pre>
         </section>
         <section>
-          Named Slot continued
+          <h3>Named Slots</h3>
           <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
-            <!-- App.vue -->
-            <base-layout>
-              <template v-slot:header>
-                <h1>Here might be a page title</h1>
-              </template>
-            
-              <p>A paragraph for the main content.</p>
-              <p>And another one.</p>
-            
-              <template #footer>
-                <p>Here's some contact info</p>
-              </template>
-            </base-layout>
+            <!-- ShopCardTitle.vue -->
+            <h3>
+              <slot></slot>
+            </h3>
+            <div>
+              <slot name="price"></slot>
+            </div>
           </code></pre>
         </section>
         <section>
-          Life Cycle Hooks
-          <div>
+          <h3>Named Slot continued</h3>
+          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            <!-- ProductDetails.vue -->
+            <shop-card-title>
+              {{ product.name }}
+              <template v-slot:price>
+                {{ product.price | shopCurrency }}
+              </template>
+              <template #price>
+                {{ product.price | shopCurrency }}
+              </template>
+            </shop-card-title>
+          </code></pre>
+        </section>
+        <section id="lifecycle-hooks">
+          <h3>
             <a
-            href="https://www.digitalocean.com/community/tutorials/vuejs-component-lifecycle"
-            target="_blank"
-            >Digital Ocean Article</a
-          >
-          </div>
+              href="https://www.digitalocean.com/community/tutorials/vuejs-component-lifecycle"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Life Cycle Hooks</a
+            >
+          </h3>
           <div>
             <ul>
               <li>beforeCreate / created</li>
@@ -365,24 +551,164 @@
             the child element rendered before setting a prop; use this.$next()
           </p>
         </section>
+        <section id="plugins">
+          <h3>
+            <a
+              href="https://next.router.vuejs.org/api/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Router</a
+            >
+          </h3>
+          <!-- TODO: Grab code! -->
+        </section>
         <section>
-          <h3>References</h3>
+          <h3>
+            <a
+              href="https://vuex.vuejs.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Vuex</a
+            >
+          </h3>
+          <!-- TODO: Grab code! -->
+        </section>
+        <section id="testing">
+          <h3>Testing</h3>
+          <div class="fragment" style="text-align: left">
+            <h5>Unit Testing</h5>
+            <ul>
+              <li>
+                <a
+                  href="https://mochajs.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Mocha</a
+                >
+                +
+                <a
+                  href="https://www.chaijs.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Chai</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://jestjs.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Jest</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="fragment" style="text-align: left">
+            <h5>e2e Testing</h5>
+            <ul>
+              <li>
+                <a
+                  href="https://www.cypress.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Cypress</a
+                >
+                (Chrome only)
+              </li>
+              <li>
+                <a
+                  href="https://nightwatchjs.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Nightwatch</a
+                >
+                (WebDriver-based)
+              </li>
+              <li>
+                <a
+                  href="https://webdriver.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >WebdriverIO</a
+                >
+                (WebDriver/DevTools based)
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3>Unit Testing (Jest)</h3>
+        </section>
+        <section>
+          <h3>e2e Testing (Cypress)</h3>
+        </section>
+        <section>
+          <h3>Q & A</h3>
+        </section>
+        <section>
+          <h3>Additional Resources</h3>
           <ul>
-            <li><a href="https://vuejs.org">Vue js</a></li>
-            <li><a href="https://cli.vuejs.org/guide/">Vue CLI</a></li>
             <li>
-              <a href="https://vuejs.org/v2/style-guide/">Vue Style Guide</a>
+              <a
+                href="https://vuejs.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Vue 2 docs</a
+              >
             </li>
-            <li><a href="https://nuxtjs.org/">Nuxt</a></li>
+            <li>
+              <a
+                href="https://cli.vuejs.org/guide/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Vue CLI</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://v3.vuejs.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Vue 3 docs</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://vuejs.org/v2/style-guide/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Vue Style Guide</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://blog.logrocket.com/how-the-virtual-dom-works-in-vue-js/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >vue.js virtual DOM</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://blog.logrocket.com/vue-typescript-tutorial-examples"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Additional Typescript Help</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/championswimmer/vuex-module-decorators"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Typescript Vuex decorators</a
+              >
+            </li>
           </ul>
         </section>
         <section>
-          DEMO
-          <div>
-            <a href="https://github.com/nick-gernert/pigs-and-flies-shop" target="_blank">Pigs and Flies</a>
-          </div>
+          <h3>Other Resources ?</h3>
         </section>
-        <section>Q & A</section>
       </div>
     </div>
 
@@ -396,6 +722,7 @@
       // - https://revealjs.com/config/
       Reveal.initialize({
         hash: true,
+        slideNumber: true,
 
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
