@@ -260,7 +260,6 @@
           </ul>
         </section>
         <section>
-          <!-- TODO: typescript -->
           <h3>
             <a
               href="https://vuejs.org/v2/guide/typescript.html"
@@ -289,6 +288,14 @@
               @watch('item', { deep: true })
               itemChanged() {}
             };
+          </code></pre>
+        </section>
+        <section>
+          <h3>Template Binding</h3>
+          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            {{ product.name }}
+            <span v-bind:id="product.id"></span>
+            <button v-bind:disabled="product.inventory === 0">Order</button>
           </code></pre>
         </section>
         <section id="component-communication">
@@ -560,7 +567,13 @@
               >Router</a
             >
           </h3>
-          <!-- TODO: Grab code! -->
+          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            {
+              path: '/details/:id',
+              name: 'Details',
+              component: () => import(/* webpackChunkName: "details" */ '@/views/Details.vue'),
+            },
+          </code></pre>
         </section>
         <section>
           <h3>
@@ -571,7 +584,10 @@
               >Vuex</a
             >
           </h3>
-          <!-- TODO: Grab code! -->
+          <ul>
+            <li>Global App state</li>
+            <li>More boilerplate than using local state / props</li>
+          </ul>
         </section>
         <section id="testing">
           <h3>Testing</h3>
@@ -638,9 +654,34 @@
         </section>
         <section>
           <h3>Unit Testing (Jest)</h3>
+          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            // shop.spec.ts
+            describe('mutations', () => {
+              let store: Store<{ shop: ShopState }>;
+            
+              beforeEach(() => {
+                const localVue = createLocalVue();
+                localVue.use(Vuex);
+                store = new Vuex.Store({ modules: { shop: ShopModule } });
+              });
+            
+              it('should add item to cart', () => {
+                store.commit(`shop/${MutationTypes.ADD_TO_CART}`, PRODUCT);
+                expect(store.state.shop.cartItems).toStrictEqual(CART_ITEMS);
+              });
+            });
+          </code></pre>
         </section>
         <section>
           <h3>e2e Testing (Cypress)</h3>
+          <pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+            describe('Shop Header Test', () => {
+              it('Visits the app root url', () => {
+                cy.visit('/');
+                cy.contains('span', 'Pigs & Flies');
+              });
+            });
+          </code></pre> 
         </section>
         <section>
           <h3>Q & A</h3>
@@ -705,9 +746,6 @@
               >
             </li>
           </ul>
-        </section>
-        <section>
-          <h3>Other Resources ?</h3>
         </section>
       </div>
     </div>
